@@ -1,0 +1,56 @@
+Standard Deviation Explorer
+========================================================
+author: Robin Chauhan
+date: Aug 23, 2015
+transition: rotate
+
+Stats profs
+========================================================
+ - Do your students have trouble understanding the impact of SD on regression and confidence intervals?
+ - We have built the ultimate solution 
+ - Hundreds of man-years have gone into this groundbreaking system
+ - Stats 101 will never be the same again
+ - Use it here: https://rrsch.shinyapps.io/project_shiny_app
+
+Core Algorithm
+========================================================
+
+```{r}
+x_std_dev <- 1.0
+y_std_dev <- 2.0
+obs<-100
+x <- rnorm(obs, sd=x_std_dev)
+y <- rnorm(obs, sd=y_std_dev)
+dat<-data.frame(x,y)
+lm(dat$y~dat$x)
+```
+
+Example Plot
+========================================================
+ - Note regression line and confidence interval
+```{r, echo=FALSE}
+x_std_dev <- 1.0
+y_std_dev <- 2.0
+
+library(ggplot2)
+obs<-100
+df <-10
+lim <- 2
+#par(mfrow=c(2,2))
+
+# for(i in 1:4) 
+x <- rnorm(obs, sd=x_std_dev)
+y <- rnorm(obs, sd=y_std_dev)
+dat<-data.frame(x,y)
+ggplot(dat, aes(x=x, y=y)) + geom_point(shape=1) +  
+    geom_smooth(method=lm) + coord_cartesian(xlim = c(-1*lim, lim), ylim = c(-1*lim, lim) ) 
+```
+
+
+Next Steps
+========================================================
+- Fall 2015: International patent application core technology
+- Aggresively hiring PhDs and ex-SpaceX engineers
+- IPO in early 2016
+- Producing 2-hour CGI tutorial at DreamWorks
+- Join us and change the World! (of Stats 101 education)
